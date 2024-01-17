@@ -22,7 +22,8 @@ I think you like my project .
 
 
 ## Introduction
-Next.js (pronounced /ˈnɛkst dʒeɪ/) is a progressive framework for building web applications. It is designed from the ground up to be incrementally adoptable, and can seamlessly transition between a lightweight library and a robust framework based on diverse use cases. Next.js comprises a versatile core library that emphasizes the view layer, along with a thriving ecosystem of auxiliary libraries, empowering you to manage intricacies in expansive Single-Page Applications.
+Angular is a powerful and versatile front-end framework for building dynamic and responsive web applications. Developed and maintained by Google, Angular provides a comprehensive set of tools and features that facilitate the creation of modern, single-page applications (SPAs). Known for its modular architecture and emphasis on a declarative approach to building user interfaces, Angular simplifies the development process while offering scalability for projects of varying sizes.
+
 
 ## Documentation
 
