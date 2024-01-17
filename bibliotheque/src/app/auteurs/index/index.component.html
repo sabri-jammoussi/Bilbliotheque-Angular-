@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Les Auteurs</h2>
+    <div class="d-flex align-items-center">
+
+        <input matInput (keyup)="filter($event)" placeholder="Rechercher" class="form-control me-2" type="search" aria-label="Search" style="width: 190px;">
+        <div style="margin-left: auto;">
+          <app-create></app-create>
+        </div>
+      </div>
+    <table mat-table [dataSource]="auteurs" class="mat-elevation-z8" #mytable matSort>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        <ng-container matColumnDef="nomauteur">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>NomAuteur</th>
+            <!-- <td mat-cell *matCellDef="let t"><img src={{t.nomauteur}} alt="" width="80" height="80" /></td> -->
+            <td mat-cell *matCellDef="let t">{{ t.nomauteur}}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let t">{{ t.email}}</td>
+        </ng-container>
+        <ng-container matColumnDef="numtel">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero Tellephone</th>
+            <td mat-cell *matCellDef="let t">{{ t.numtel}}</td>
+        </ng-container>
+        <ng-container matColumnDef="_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let t">
+                <app-view [auteurId]="t._id"></app-view>
+                <app-edit [auteurId]="t._id"></app-edit>
+                <button type="button" (click)=" deleteAuteur(t._id)" class="btn btn-default">
+                    <i class="bi bi-trash-fill" style="color:red"></i>
+                </button>
+            </td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="prix">
+            <th mat-header-cell *matHeaderCellDef>Prix</th>
+            <td mat-cell *matCellDef="let t">{{ t.prix}} TND</td>
+        </ng-container> -->
+    </table>
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10,20]" showFirstLastButtons></mat-paginator>
+</div>

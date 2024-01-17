@@ -1,0 +1,44 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" (click)="openModal()">
+    <i class="bi bi-plus-circle-fill"></i>
+    Nouveau Specialites
+</button>
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajout Specialites</h4>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formAuteur"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Form -->
+<ng-template #formAuteur>
+    <form (ngSubmit)="ajoutSpecialite()">
+        <div class="mb-3">
+            <input required minlength="4" #nomspecialite="ngModel" type="text" class="form-control" id="nomspecialite"
+                name="nomspecialite" placeholder="nomspecialite" [(ngModel)]="specialites.nomspecialite">
+        </div>
+        <div *ngIf="nomspecialite.invalid && (nomspecialite.dirty || nomspecialite.touched)" class="alert">
+            <div *ngIf="nomspecialite.errors?.['required']" [ngStyle]="{'color':'red'}">
+                Saisir la Spécialites
+            </div>
+            <div *ngIf="nomspecialite.errors?.['minlength']" [ngStyle]="{'color':'red'}">
+                La Spécialites doit avoir au moins 4 caractères
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success" (click)="ajoutSpecialite()">Enregistrer</button>
+        </div>
+    </form>
+</ng-template>

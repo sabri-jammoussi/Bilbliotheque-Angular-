@@ -1,0 +1,64 @@
+<!-- Button trigger modal -->
+<button class="btn btn-default" (click)="openModal()">
+    <i class="bi bi-pencil-square" style="color:blue"></i>
+</button>
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modification Auteur</h4>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formProduct"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Form -->
+<ng-template #formProduct>
+    <form (ngSubmit)="updateAuteur()">
+        <div class="mb-3">
+            <input required minlength="4" #nomauteur="ngModel" type="text" class="form-control" id="nomauteur"
+                name="nomauteur" placeholder="NomAuteur" [(ngModel)]="auteurs.nomauteur">
+        </div>
+        <div *ngIf="nomauteur.invalid && (nomauteur.dirty || nomauteur.touched)" class="alert">
+            <div *ngIf="nomauteur.errors?.['required']" [ngStyle]="{'color':'red'}">
+                Saisir la désignation
+            </div>
+            <div *ngIf="nomauteur.errors?.['minlength']" [ngStyle]="{'color':'red'}">
+                La désignation doit avoir au moins 4 caractères
+            </div>
+        </div>
+        <div class="mb-3">
+            <input required  #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email"
+                [(ngModel)]="auteurs.email">
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="alert">
+            <div *ngIf="email.errors?.['required']" [ngStyle]="{'color': 'red'}">
+                Email is required
+            </div>
+            <div *ngIf="email.errors?.['email']" [ngStyle]="{'color': 'red'}">
+                Invalid email format
+            </div>
+        </div>
+        
+
+
+        <div class="mb-3">
+            <input type="number" class="form-control" id="numtel" name="numtel" placeholder="numtel"
+                [(ngModel)]="auteurs.numtel">
+        </div>
+
+
+        <div>
+            <button type="submit" class="btn btn-success" (clic)="updateAuteur()">Enregistrer</button>
+        </div>
+    </form>
+</ng-template>

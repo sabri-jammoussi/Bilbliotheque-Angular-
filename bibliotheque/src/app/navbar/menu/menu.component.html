@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Gestion Livres</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ng-container *ngIf="this.authService.isLoggedIn(); else showSignIn">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/livres">Liste des Livres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auteurs">Liste des Auteurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/editeurs">Liste des Editeurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/specialites">Liste des Spécialités</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-light text-dark me-2" routerLink="/ecommerce">
+                            E-commerce Space
+                        </a>
+                    </li>
+
+                </ng-container>
+                <ng-template #showSignIn>
+                    <li class="nav-item">
+                        <a class="btn btn-light text-dark me-2" routerLinkActive="active"
+                            (click)="changeRoute('/login')">Sign in</a>
+                    </li>
+                </ng-template>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <button *ngIf="this.authService.isLoggedIn()" (click)="logout()" type="button" class="btn btn-default">
+                Logout
+            </button>
+        </div>
+    </div>
+</nav>

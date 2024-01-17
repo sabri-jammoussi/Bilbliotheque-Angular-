@@ -1,0 +1,21 @@
+<div class="form-signin container w-50 m-auto">
+    <form (ngSubmit)="loginUser()" style="text-align: center;">
+        <h3 style="margin-bottom: 20px; font-weight: normal;">Login</h3>
+        <div style="margin-bottom: 20px;">
+            <label for="email">Email</label>
+            <div style="margin-bottom: 10px;">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="email">
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <label for="password">Password</label>
+            <div style="margin-bottom: 10px;">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" [(ngModel)]="password">
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Sign in</button>
+            <a class="btn btn-light" routerLinkActive="active" routerLink="/register">Register</a>
+        </div>
+    </form>
+</div>

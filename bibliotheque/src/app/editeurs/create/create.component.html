@@ -1,0 +1,52 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" (click)="openModal()">
+    <i class="bi bi-plus-circle-fill"></i>
+    Nouveau Editeurs
+</button>
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajout Editeurs</h4>
+                <button type="button" class="btn btn-default" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <template *ngTemplateOutlet="formAuteur"></template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Form -->
+<ng-template #formAuteur>
+    <form (ngSubmit)="ajoutEditeur()">
+        <div class="mb-3">
+            <input required minlength="4" #maisonedit="ngModel" type="text" class="form-control" id="maisonedit"
+                name="maisonedit" placeholder="maisonedit" [(ngModel)]="editeurs.maisonedit">
+        </div>
+        <div *ngIf="maisonedit.invalid && (maisonedit.dirty || maisonedit.touched)" class="alert">
+            <div *ngIf="maisonedit.errors?.['required']" [ngStyle]="{'color':'red'}">
+                Saisir la Editeur
+            </div>
+            <div *ngIf="maisonedit.errors?.['minlength']" [ngStyle]="{'color':'red'}">
+                La Editeur doit avoir au moins 4 caractères
+            </div>
+        </div>
+        <div class="mb-3">
+            <input required minlength="4" #siteweb="ngModel" type="text" class="form-control" id="siteweb"
+                name="siteweb" placeholder="siteweb" [(ngModel)]="editeurs.siteweb">
+        </div>
+        <div class="mb-3">
+            <input required minlength="4" #email="ngModel" type="text" class="form-control" id="email"
+                name="email" placeholder="email" [(ngModel)]="editeurs.email">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success" (click)="ajoutEditeur()">Enregistrer</button>
+        </div>
+    </form>
+</ng-template>
