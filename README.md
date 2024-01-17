@@ -5,3 +5,7 @@
     <br> using TypeScript/JavaScript and other languages.</em>
   <br>
 </p>
+<p align="center">
+  <a href="https://angular.dev/"><strong>angular.dev</strong></a>
+  <br>
+</p>
