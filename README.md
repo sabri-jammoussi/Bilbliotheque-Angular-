@@ -3,7 +3,7 @@
 # voiture-client-sever-
 
 
-This project is based with NextJs and NodeJs . It's simple templates with all the CRUD ("create & read & update & delete "). 
+This project is based with Angular and NodeJs . It's simple templates with all the CRUD ("create & read & update & delete ") and the authentication . 
 
 I think you like my project .
 
@@ -26,8 +26,9 @@ Next.js (pronounced /ˈnɛkst dʒeɪ/) is a progressive framework for building w
 
 ## Documentation
 
-Next.js and Node.js:
-To explore live examples and documentation for Next.js, visit nextjs.org.
+
+Angular and Node.js:
+To explore live examples and documentation for Angular, visit angular.io.
 
 Express.js: For documentation on Node.js with Express, visit expressjs.com.
 
